@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="alert_image_dlg_btn_normal">#ffffffff</color>
+    <color name="alert_image_dlg_btn_pressed">#ffffe0bf</color>
+    <color name="alert_notify_dialog_btn_bg_normal">#00000000</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="hs_s22">#fff0641f</color>
+
+    <color name="account_account_bind_night">@color/default_text_night</color>
+    <color name="default_text_night">#ff5c6266</color>
+</resources>
