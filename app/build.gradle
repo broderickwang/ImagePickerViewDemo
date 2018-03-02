@@ -27,8 +27,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':imagepicker')
 
-
-
     compile 'com.github.YancyYe:GalleryPick:1.2.1'
 
 }

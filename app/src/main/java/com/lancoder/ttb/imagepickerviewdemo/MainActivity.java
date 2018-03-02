@@ -3,6 +3,8 @@ package com.lancoder.ttb.imagepickerviewdemo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 import com.lancoder.ttb.imagepicker.listner.ImageShowPickerListener;
 import com.lancoder.ttb.imagepicker.model.ImageShowPickerBean;
@@ -27,10 +29,26 @@ public class MainActivity extends AppCompatActivity implements ImageShowPickerLi
 
     ArrayList<String> al;
 
+    TextView test;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        test = findViewById(R.id.test);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageSelector
+                        .create()
+                        .count(9)
+                        .camera(true)
+                        .multi()
+                        .origenlist(al)
+                        .start(MainActivity.this,POST_REQUEST_CODE);
+            }
+        });
 
         mImagePickerView = findViewById(R.id.image_show);
         mImagePickerView.setPickerListener(this);
@@ -47,7 +65,12 @@ public class MainActivity extends AppCompatActivity implements ImageShowPickerLi
         /*Intent intent = new Intent(this, AlbumActivity.class);
         intent.putExtra(AlbumActivity.ALBUM_IMAGE_COUNT, 9);
         startActivityForResult(intent, POST_REQUEST_CODE);*/
-        ImageSelector.create().count(9).camera(true).multi().origenlist(al).start(MainActivity.this,POST_REQUEST_CODE);
+        ImageSelector.create()
+                .count(9)
+                .camera(true)
+                .multi()
+                .origenlist(al)
+                .start(MainActivity.this,POST_REQUEST_CODE);
     }
 
     @Override
@@ -68,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements ImageShowPickerLi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == POST_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == POST_REQUEST_CODE && resultCode == SelectImageActivity.SELECT_RESULT_OK) {
             al = data.getStringArrayListExtra(SelectImageActivity.EXTRA_RESULT);
 
             if(al != null){

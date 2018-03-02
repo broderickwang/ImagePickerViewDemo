@@ -77,9 +77,9 @@ public class SelectImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_image);
 
-        initData();
-
         initView();
+
+        initData();
 
     }
 
